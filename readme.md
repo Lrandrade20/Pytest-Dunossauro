@@ -1,27 +1,23 @@
 # Pytest – Guia Rápido
 
+Este repositório foi criado conforme vídeo aula de introdução ao **pytest** do [Dunossauro](https://www.youtube.com/@dunossauro).  
+A ideia é servir como guia rápido (cheatsheet) para comandos, marcações e exemplos básicos.
+
 ```bash
 # 📌 Introdução e Instalação
 pip install pytest
 pytest --version
 
 # 📌 Testes
-# Estrutura básica: funções iniciando com test_ e uso de assert
 def test_exemplo():
     assert 2 + 2 == 4
 
 # 📌 Marks
-# pular teste
 @pytest.mark.skip(reason="Não implementado")
-
-# pular se condição for verdadeira
 @pytest.mark.skipif(sys.platform == "win32", reason="Não roda no Windows")
-
-# esperar falha
 @pytest.mark.xfail(reason="Bug conhecido")
 
-# rodar testes com mark específica
-pytest -m slow
+pytest -m slow   # rodar testes por marca
 
 # 📌 Fixtures
 import pytest
